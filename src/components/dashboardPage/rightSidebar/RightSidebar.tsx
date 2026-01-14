@@ -96,7 +96,7 @@ export function RightSidebar({
     return (
         <div className="w-full flex flex-col h-[calc(100vh-70px)]">
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b sticky top-0 z-20 bg-blue-200">
+            <div className="flex items-center justify-between p-4 border-b sticky top-0 z-10 bg-blue-200">
                 <div className="flex items-center gap-2">
                     <span className="text-white font-bold">💬</span>
                     <span className="bg-linear-to-r text-xl to-[#49cce9] from-[#346FB7]

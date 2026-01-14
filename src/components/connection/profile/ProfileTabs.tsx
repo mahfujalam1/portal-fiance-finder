@@ -53,7 +53,7 @@ export function ProfileTabs({ profiles }: ProfileTabsProps) {
                     setSubTab("pending") // Reset to pending when changing main tab
                 }}
             >
-                <TabsList className="w-md mx-auto justify-start bg-gray-100 gap-4 h-auto">
+                <TabsList className="md:w-md w-full mx-auto justify-start bg-gray-100 gap-4 h-auto">
                     <TabsTrigger
                         value="received"
                         className="data-[state=active]:tab-trigger-active py-2 px-0 text-gray-700"
@@ -75,7 +75,7 @@ export function ProfileTabs({ profiles }: ProfileTabsProps) {
                 </TabsList>
             </Tabs>
 
-            <div className="flex flex-wrap gap-2 bg-box-gradient  rounded-lg">
+            <div className="flex flex-wrap gap-2 bg-box-gradient  rounded-lg w-full">
                 <button
                     onClick={() => setSubTab("pending")}
                     className={`px-4 py-2 rounded transition-colors ${subTab === "pending" ? "bg-white text-primary" : "bg-transparent text-white "
@@ -99,7 +99,7 @@ export function ProfileTabs({ profiles }: ProfileTabsProps) {
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-6">
                 {filteredProfiles.length > 0 ? (
                     filteredProfiles.map((profile) => (
                         <ProfileCard

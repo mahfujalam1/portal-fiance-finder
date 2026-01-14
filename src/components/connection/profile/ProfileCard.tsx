@@ -19,7 +19,7 @@ export function ProfileCard({
   onBlock,
 }: ProfileCardProps) {
   return (
-    <div className="w-full max-w-sm overflow-hidden rounded-md bg-white shadow-md hover:scale-105 transition-all duration-500">
+    <div className="w-full max-w-sm mx-auto overflow-hidden rounded-md bg-white shadow-md hover:scale-105 transition-all duration-500">
       <div className="relative w-full h-64   overflow-hidden">
         <Image
           src={profile.image || "/placeholder.svg"}
@@ -59,7 +59,7 @@ export function ProfileCard({
       <div className="px-6 py-4 flex flex-col gap-3">
         <div className="flex gap-3 justify-center w-full">
           <Button
-            className="px-9"
+            className="w-full"
             variant={"default"}
             onClick={() => onAccept(profile.id)}
           >
@@ -68,7 +68,7 @@ export function ProfileCard({
           <Button
             onClick={() => onReject(profile.id)}
             variant="outline"
-            className="flex-1 border-blue-400 text-blue-400 hover:bg-blue-50"
+            className="w-full"
           >
             Reject
           </Button>

@@ -91,7 +91,7 @@ export function ChatWindow({ chat, onClose }: ChatWindowProps) {
     }
 
     return (
-        <div className="fixed right-1/4 bottom-1 w-80 h-[550px] bg-white rounded-lg shadow-2xl z-auto flex flex-col overflow-hidden">
+        <div className="fixed right-10 md:right-1/4 bottom-1 w-80 h-[550px] bg-white rounded-lg shadow-2xl z-20 flex flex-col overflow-hidden">
             {/* Header */}
             <div className="p-3 flex items-center justify-between bg-box-gradient">
                 <div className="flex items-center gap-3">

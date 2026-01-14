@@ -34,6 +34,10 @@
   @apply bg-box-gradient text-white;
 } */
 
+.text-primary{
+  @apply text-[#346FB7]
+}
+
 
 .blue-scrollbar::-webkit-scrollbar {
   width: 6px;

@@ -1,5 +1,4 @@
 import { MainContent } from '@/components/dashboardPage/centerContent/CenterContent'
-import React from 'react'
 
 function HomePage() {
     return (

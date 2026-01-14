@@ -1,9 +1,8 @@
-import { ProfileTabs } from '@/components/connection/profile/ProfileTabs'
 import { RightSidebar } from '@/components/dashboardPage/rightSidebar/RightSidebar'
-import { profiles } from '@/constant/profilesData'
 import { MobileChatBar } from '@/components/chat/MobileChatBar'
+import SearchPage from '@/page/SearchPage'
 
-function ConnectionPage() {
+function Search() {
     return (
         <div className="max-w-7xl mx-auto pt-20 min-h-screen px-4 md:px-6">
 
@@ -11,7 +10,7 @@ function ConnectionPage() {
 
                 {/* Main Content */}
                 <div className="w-full lg:w-[70%]">
-                    <ProfileTabs profiles={profiles} />
+                    <SearchPage/>
                 </div>
 
                 {/* Right Sidebar (Tablet + Desktop only) */}
@@ -29,4 +28,4 @@ function ConnectionPage() {
     )
 }
 
-export default ConnectionPage
+export default Search;
