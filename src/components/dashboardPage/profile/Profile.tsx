@@ -3,10 +3,11 @@
 import { ProfileCard } from "@/components/profile/ProfileCard";
 import { profiles } from "@/constant/profilesData";
 import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { Suspense, useMemo } from "react";
 
 export default function Profile() {
     const searchParams = useSearchParams();
+    console.log('')
 
     // URL থেকে সব filters নিন
     const filters = {
@@ -59,27 +60,29 @@ export default function Profile() {
     }, [filters]);
 
     return (
-        <div className="space-y-4">
-            {/* Filter info দেখান */}
-            <div className="bg-blue-50 p-4 rounded-lg">
-                <p className=" text-gray-600 text-xl font-bold bg-linear-to-r text-xl to-[#49cce9] from-[#346FB7]
+        <Suspense fallback={<div>Loading...</div>}>
+            <div className="space-y-4">
+                {/* Filter info দেখান */}
+                <div className="bg-blue-50 p-4 rounded-lg">
+                    <p className=" text-gray-600 text-xl font-bold bg-linear-to-r text-xl to-[#49cce9] from-[#346FB7]
     bg-clip-text text-transparent text-center">
-                    Search Result: {filteredProfiles.length}
-                    {filters.maritalStatus !== 'all' && ` • ${filters.maritalStatus}`}
-                    {filters.recentlyJoined !== 'all' && ` • Joined ${filters.recentlyJoined}`}
-                </p>
-            </div>
-
-            {/* Profiles display */}
-            {filteredProfiles.length > 0 ? (
-                filteredProfiles.slice(0, 7).map((profile) => (
-                    <ProfileCard key={profile.id} profile={profile} />
-                ))
-            ) : (
-                <div className="text-center py-10">
-                    <p className="text-gray-500">No profiles found with selected filters</p>
+                        Search Result: {filteredProfiles.length}
+                        {filters.maritalStatus !== 'all' && ` • ${filters.maritalStatus}`}
+                        {filters.recentlyJoined !== 'all' && ` • Joined ${filters.recentlyJoined}`}
+                    </p>
                 </div>
-            )}
-        </div>
+
+                {/* Profiles display */}
+                {filteredProfiles.length > 0 ? (
+                    filteredProfiles.slice(0, 7).map((profile) => (
+                        <ProfileCard key={profile.id} profile={profile} />
+                    ))
+                ) : (
+                    <div className="text-center py-10">
+                        <p className="text-gray-500">No profiles found with selected filters</p>
+                    </div>
+                )}
+            </div>
+        </Suspense>
     );
 }

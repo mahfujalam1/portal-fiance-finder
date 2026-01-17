@@ -7,6 +7,7 @@ import { ProfessionalDetailsCard } from "../professionCard/ProfessionCard"
 import { ProfilePhotoCard } from "../profilePhoto/ProfilePhoto"
 import { VerifyIdCard } from "../verifyCard/VerifyCard"
 import Profile from "../profile/Profile"
+import { Suspense } from "react"
 
 export const MainContent = () => {
     return (
@@ -16,7 +17,7 @@ export const MainContent = () => {
 
             {/* Account Activity Section */}
             <AccountActivity />
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5  mx-auto">
                 <ProfessionalDetailsCard />
                 <ProfilePhotoCard />
@@ -24,7 +25,9 @@ export const MainContent = () => {
             </div>
 
             <SectionHeader title="Today's Match" />
-            <Profile/>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Profile />
+            </Suspense>
         </div>
     )
 }

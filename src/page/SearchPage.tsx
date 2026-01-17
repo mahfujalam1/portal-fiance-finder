@@ -77,8 +77,15 @@ const SearchPage = () => {
     };
 
     return (
-        <div className="min-h-screen  p-6">
+        <div className="min-h-screen  px-6">
             <div className="max-w-4xl mx-auto space-y-6">
+                {/* Header */}
+                <div className="bg-white p-4 rounded-lg">
+                    <p className="font-bold bg-linear-to-r text-xl to-[#49cce9] from-[#346FB7] bg-clip-text text-transparent text-center">
+                        Find Your Desired Profiles Here
+                    </p>
+                </div>
+
                 {/* Matrimony ID Search */}
                 <MatrimonyIdSearch
                     matrimonyId={matrimonyId}
