@@ -1,9 +1,9 @@
-import { ProfileTabs } from '@/components/connection/profile/ProfileTabs'
+
 import { RightSidebar } from '@/components/dashboardPage/rightSidebar/RightSidebar'
 import { MobileChatBar } from '@/components/chat/MobileChatBar'
 import { PrivacySettings } from '@/page/privacy-settings/PrivacySettings'
 
-function PrivacySettingsPage() {
+function ConnectionPage() {
     return (
         <div className="max-w-7xl mx-auto pt-20 min-h-screen px-4 md:px-6">
 
@@ -29,4 +29,4 @@ function PrivacySettingsPage() {
     )
 }
 
-export default PrivacySettingsPage
+export default ConnectionPage

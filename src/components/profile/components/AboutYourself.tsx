@@ -1,60 +1,55 @@
-'use client';
+"use client"
 
-import { FileText, Edit, Check } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Textarea } from '@/components/ui/textarea';
-import { useState } from 'react';
+import { useState } from "react"
+import { Edit2, Check } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Textarea } from "@/components/ui/textarea"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-interface AboutYourselfProps {
-    content: string;
-    isOwnProfile: boolean;
-    onSave?: (content: string) => void;
+interface AboutSectionProps {
+    title: string
+    content: string
+    hisProfile?: boolean
+    onSave?: (content: string) => void
 }
 
-export function AboutYourself({ content, isOwnProfile, onSave }: AboutYourselfProps) {
-    const [isEditing, setIsEditing] = useState(false);
-    const [text, setText] = useState(content);
+export function AboutSection({ title, content, hisProfile = false, onSave }: AboutSectionProps) {
+    const [isEditing, setIsEditing] = useState(false)
+    const [editedContent, setEditedContent] = useState(content)
 
     const handleSave = () => {
-        console.log('About Yourself Updated:', text);
-        onSave?.(text);
-        setIsEditing(false);
-    };
+        console.log("Saving about content:", editedContent)
+        onSave?.(editedContent)
+        setIsEditing(false)
+    }
 
     return (
-        <Card>
-            <CardHeader className="flex flex-row items-center justify-between">
-                <div className="flex items-center gap-2">
-                    <FileText className="w-5 h-5 text-[#346FB7]" />
-                    <CardTitle className="text-lg text-[#346FB7]">About Yourself</CardTitle>
-                </div>
-                {isOwnProfile && (
-                    <div className="flex gap-2">
-                        {isEditing ? (
-                            <Button variant="ghost" size="sm" onClick={handleSave}>
-                                <Check className="w-4 h-4 text-green-600" />
-                            </Button>
-                        ) : (
-                            <Button variant="ghost" size="sm" onClick={() => setIsEditing(true)}>
-                                <Edit className="w-4 h-4" />
-                            </Button>
-                        )}
-                    </div>
+        <Card className="border border-border hover:border-primary/50 transition-colors p-6">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                <CardTitle className="text-lg">{title}</CardTitle>
+                {hisProfile && !isEditing && (
+                    <Button onClick={() => setIsEditing(true)} variant="ghost" size="icon" className="hover:bg-primary/10">
+                        <Edit2 className="w-4 h-4 text-primary" />
+                    </Button>
+                )}
+                {hisProfile && isEditing && (
+                    <Button onClick={handleSave} variant="ghost" size="icon" className="hover:bg-green-500/10">
+                        <Check className="w-4 h-4 text-green-600" />
+                    </Button>
                 )}
             </CardHeader>
+
             <CardContent>
-                {isEditing ? (
+                {isEditing && hisProfile ? (
                     <Textarea
-                        value={text}
-                        onChange={(e) => setText(e.target.value)}
-                        rows={5}
-                        className="text-sm"
+                        value={editedContent}
+                        onChange={(e) => setEditedContent(e.target.value)}
+                        className="h-full border-primary/30 focus:border-primary resize-none"
                     />
                 ) : (
-                    <p className="text-sm text-gray-700 leading-relaxed">{text}</p>
+                    <p className="text-sm leading-relaxed text-foreground/90">{editedContent}</p>
                 )}
             </CardContent>
         </Card>
-    );
+    )
 }

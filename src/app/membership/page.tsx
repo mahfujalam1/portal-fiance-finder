@@ -1,8 +1,9 @@
+
 import { RightSidebar } from '@/components/dashboardPage/rightSidebar/RightSidebar'
 import { MobileChatBar } from '@/components/chat/MobileChatBar'
-import { ProfilePage } from '@/components/profile/ProfilePage'
+import { MyAccount } from '@/page/myAccount/MyAccountPage'
 
-function ProfilePageLayout() {
+function Membership() {
     return (
         <div className="max-w-7xl mx-auto pt-20 min-h-screen px-4 md:px-6">
 
@@ -10,7 +11,7 @@ function ProfilePageLayout() {
 
                 {/* Main Content */}
                 <div className="w-full lg:w-[70%]">
-                  <ProfilePage/>
+                    <MyAccount/>
                 </div>
 
                 {/* Right Sidebar (Tablet + Desktop only) */}
@@ -28,4 +29,4 @@ function ProfilePageLayout() {
     )
 }
 
-export default ProfilePageLayout
+export default Membership

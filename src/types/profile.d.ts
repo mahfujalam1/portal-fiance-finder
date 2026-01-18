@@ -7,17 +7,18 @@ export interface ProfileData {
   profileId: string;
   mainTab: MainTab;
   status: ProfileStatus;
+  idNo:string;
 
   /* ===== Images ===== */
   coverImage: string;
-  profileImage: string; 
+  profileImage: string;
   images: string[];
 
   /* ===== Basic Info ===== */
   name: string;
   about: string;
-  email:string;
-  mobileNumber:string;
+  email: string;
+  mobileNumber: string;
   basicInfo: {
     age: number;
     religion: string;
@@ -30,6 +31,7 @@ export interface ProfileData {
     weight: string;
     skinTone: string;
     bodyType: string;
+    bloodGroup: string;
     community: string;
     profileFor: string;
     maritalStatus: string;
@@ -41,8 +43,10 @@ export interface ProfileData {
     fatherOccupation: string;
     motherStatus: string;
     motherOccupation: string;
-    siblings: string;
-    sisters: string;
+    siblings: {
+      brothers: number;
+      sisters: number;
+    };
     affluence: string;
     livesIn: string;
   };
@@ -63,7 +67,10 @@ export interface ProfileData {
     city: string;
     country: string;
     postalCode: string;
-    location: string;
+    location?: string;
+    presentAddress: string;
+    permanentAddress: string;
+    citizen: string;
   };
 
   /* ===== Lifestyle ===== */
@@ -71,10 +78,11 @@ export interface ProfileData {
     smoking: boolean;
     drinking: boolean;
     vegetarian: boolean;
-    annoyane: boolean;
     badMood: boolean;
     recklessDriving: boolean;
-    hobbies: string;
+    hobbies?: string;
+    arrogant: boolean;
+    otherHobbies?: string;
   };
 }
 

@@ -140,7 +140,7 @@ export function Navbar() {
                             {/* Account Type & Upgrade */}
                             <div className="p-6 pt-4 text-center">
                                 <p className="text-xs text-gray-500 text-center pb-1">Account Type: Free</p>
-                                <Button variant={'default'}>Upgrade Now</Button>
+                                <Button onClick={() => router.push("/upgrade-plan")} variant={'default'}>Upgrade Now</Button>
                             </div>
                         </DropdownMenuContent>
                     </DropdownMenu>
@@ -173,7 +173,7 @@ export function Navbar() {
                                         </div>
                                     </div>
                                     <button
-                                        onClick={() => router.push("/upgrade")}
+                                        onClick={() => router.push("/upgrade-plan")}
                                         className="w-full bg-[#c7236e] hover:bg-[#a91d5a] text-white py-2 px-4 rounded-md text-sm font-medium transition-colors"
                                     >
                                         Upgrade Now

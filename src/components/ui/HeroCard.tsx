@@ -1,6 +1,6 @@
 
-import { Button } from './button' 
-import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar' 
+import { Button } from './button'
+import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
 import { IMAGES } from '@/constant/image.index'
 import { ProfileData } from '@/types/profile'
 
@@ -20,9 +20,9 @@ export const ProfileCard = ({ profile }: { profile: ProfileData }) => (
                     <p className="text-sm text-gray-600">ID: SH7910202029</p>
 
                     <div className="mt-2 space-y-1 text-sm">
-                        <p><span className="font-semibold">Age</span>: {profile.age}</p>
-                        <p><span className="font-semibold">Religion</span>: {profile.religion}</p>
-                        <p><span className="font-semibold">Marital Status</span>: {profile.maritalStatus}</p>
+                        <p><span className="font-semibold">Age</span>: {profile.basicInfo.age}</p>
+                        <p><span className="font-semibold">Religion</span>: {profile.basicInfo.religion}</p>
+                        <p><span className="font-semibold">Marital Status</span>: {profile.moreInfo.maritalStatus}</p>
                     </div>
                 </div>
             </div>
