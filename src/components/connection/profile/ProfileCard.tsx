@@ -19,10 +19,10 @@ export function ProfileCard({
   onBlock,
 }: ProfileCardProps) {
   return (
-    <div className="w-full max-w-sm mx-auto overflow-hidden rounded-md bg-white shadow-md hover:scale-105 transition-all duration-500">
+    <div className="w-full max-w-sm mx-auto overflow-hidden rounded-md bg-white shadow-md hover:drop-shadow-2xl transition-all duration-500">
       <div className="relative w-full h-64   overflow-hidden">
         <Image
-          src={profile.image || "/placeholder.svg"}
+          src={profile.profileImage || "/placeholder.svg"}
           alt={profile.name}
           fill
           className="object-cover p-3 rounded-2xl"
@@ -49,9 +49,9 @@ export function ProfileCard({
             <p className="font-semibold text-gray-700">Marital Status</p>
           </div>
           <div className="">
-            <p className="text-gray-600">: {profile.age}</p>
-            <p className="text-gray-600">: {profile.religion}</p>
-            <p className="text-gray-600">: {profile.maritalStatus}</p>
+            <p className="text-gray-600">: {profile.basicInfo.age}</p>
+            <p className="text-gray-600">: {profile.basicInfo.religion}</p>
+            <p className="text-gray-600">: {profile.moreInfo.maritalStatus}</p>
           </div>
         </div>
       </div>

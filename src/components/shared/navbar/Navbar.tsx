@@ -95,7 +95,7 @@ export function Navbar() {
                                 </div>
 
                                 <div
-                                    onClick={() => router.push("/settings")}
+                                    onClick={() => router.push("/account-settings")}
                                     className="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors"
                                 >
                                     <Settings className="w-5 h-5 text-primary" />
@@ -111,7 +111,7 @@ export function Navbar() {
                                 </div>
 
                                 <div
-                                    onClick={() => router.push("/privacy")}
+                                    onClick={() => router.push("/privacy-settings")}
                                     className="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors"
                                 >
                                     <Lock className="w-5 h-5 text-primary" />
@@ -232,7 +232,7 @@ export function Navbar() {
                                         </div>
 
                                         <div
-                                            onClick={() => router.push("/settings")}
+                                            onClick={() => router.push("/account-settings")}
                                             className="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors py-2"
                                         >
                                             <Settings className="w-5 h-5 text-primary" />
@@ -240,7 +240,7 @@ export function Navbar() {
                                         </div>
 
                                         <div
-                                            onClick={() => router.push("/privacy")}
+                                            onClick={() => router.push("/privacy-settings")}
                                             className="flex items-center gap-3 cursor-pointer hover:text-primary transition-colors py-2"
                                         >
                                             <Lock className="w-5 h-5 text-primary" />

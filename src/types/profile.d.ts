@@ -10,12 +10,14 @@ export interface ProfileData {
 
   /* ===== Images ===== */
   coverImage: string;
-  profileImage: string;
+  profileImage: string; 
   images: string[];
 
   /* ===== Basic Info ===== */
   name: string;
   about: string;
+  email:string;
+  mobileNumber:string;
   basicInfo: {
     age: number;
     religion: string;

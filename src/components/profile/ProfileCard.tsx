@@ -2,22 +2,8 @@ import Image from "next/image"
 import { MessageCircle, Star, UserPlus } from "lucide-react"
 import { ActionButton } from "./ActionButton"
 import Link from "next/link"
-import { Button } from "../ui/button"
-
-interface Profile {
-    id: string
-    name: string
-    age: number
-    height: string
-    bloodGroup: string
-    city: string
-    religion: string
-    maritalStatus: string
-    about: string
-    image: string
-}
-
-export function ProfileCard({ profile }: { profile: Profile }) {
+import { ProfileData } from "@/types/profile"
+export function ProfileCard({ profile }: { profile: ProfileData }) {
     const handleAccept = (id: string) => {
         console.log("Accept:", id)
         // Add your logic here
@@ -38,7 +24,7 @@ export function ProfileCard({ profile }: { profile: Profile }) {
                 {/* Image */}
                 <div className="relative w-full md:w-48 h-60 shrink-0 rounded-xl overflow-hidden">
                     <Image
-                        src={profile.image}
+                        src={profile.profileImage}
                         alt={profile.name}
                         fill
                         className="object-cover p-2 rounded-xl"
@@ -60,15 +46,15 @@ export function ProfileCard({ profile }: { profile: Profile }) {
                     {/* Info grid */}
                     <div className="flex gap-5">
                         <div>
-                            <p><span className="font-medium">Age</span> : {profile.age}</p>
-                            <p><span className="font-medium">City</span> : {profile.city}</p>
-                            <p><span className="font-medium">Height</span> : {profile.height}</p>
+                            <p><span className="font-medium">Age</span> : {profile.basicInfo.age}</p>
+                            <p><span className="font-medium">City</span> : {profile.address.city}</p>
+                            <p><span className="font-medium">Height</span> : {profile.moreInfo.height}</p>
                         </div>
                         <div className="border-l-2 border border-gray-200" />
                         <div>
-                            <p><span className="font-medium">Religion</span> : {profile.religion}</p>
-                            <p><span className="font-medium">Blood Group</span> : {profile.bloodGroup}</p>
-                            <p><span className="font-medium">Marital Status</span> : {profile.maritalStatus}</p>
+                            <p><span className="font-medium">Religion</span> : {profile.basicInfo.religion}</p>
+                            <p><span className="font-medium">Blood Group</span> : {"o+"}</p>
+                            <p><span className="font-medium">Marital Status</span> : {profile.moreInfo.maritalStatus}</p>
                         </div>
                     </div>
 

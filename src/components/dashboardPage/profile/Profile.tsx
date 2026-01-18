@@ -24,7 +24,7 @@ export default function Profile() {
         // Marital Status filter
         if (filters.maritalStatus !== 'all') {
             result = result.filter(profile =>
-                profile.maritalStatus?.toLowerCase() === filters.maritalStatus.toLowerCase()
+                profile.moreInfo.maritalStatus?.toLowerCase() === filters.maritalStatus.toLowerCase()
             );
         }
 
