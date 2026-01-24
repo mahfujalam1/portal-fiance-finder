@@ -1,9 +1,11 @@
-import Profile from "@/components/dashboardPage/profile/Profile"
 
-function SearchPage() {
+import ProfileContent from "@/components/dashboardPage/profile/ProfileContent";
+import { Suspense } from "react";
+
+export default function Profile() {
     return (
-        <div className='pb-20'><Profile /></div>
-    )
+        <Suspense fallback={<div>Loading...</div>}>
+            <ProfileContent />
+        </Suspense>
+    );
 }
-
-export default SearchPage

@@ -5,7 +5,7 @@ import { profiles } from "@/constant/profilesData";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
-export default function Profile() {
+export default function ProfileContent() {
     const searchParams = useSearchParams();
 
     // URL থেকে সব filters নিন

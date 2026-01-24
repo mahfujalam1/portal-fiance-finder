@@ -68,7 +68,7 @@ const OTPVerificationModal = ({
                 <DialogHeader>
                     <DialogTitle className="text-2xl font-semibold text-[#346FB7]">Verify OTP</DialogTitle>
                     <DialogDescription>
-                        We've sent a verification code to {email}
+                        We have sent a verification code to {email}
                     </DialogDescription>
                 </DialogHeader>
 

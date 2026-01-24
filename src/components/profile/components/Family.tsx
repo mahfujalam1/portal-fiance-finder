@@ -8,22 +8,33 @@ import { useState } from 'react';
 
 interface FamilyProps {
     fatherStatus: string;
-    occupation: string;
+    fatherOccupation: string;
     motherStatus: string;
-    occupation2: string;
+    motherOccupation: string;
     siblings: string;
     sisters: string;
     affluence: string;
     livesIn: string;
     isOwnProfile: boolean;
-    onSave?: (data: any) => void;
+    onSave?: (data: FamilyFormData) => void;
+}
+
+interface FamilyFormData {
+    fatherStatus: string;
+    fatherOccupation: string;
+    motherStatus: string;
+    motherOccupation: string;
+    siblings: string;
+    sisters: string;
+    affluence: string;
+    livesIn: string;
 }
 
 export function Family({
     fatherStatus,
-    occupation,
+    fatherOccupation,
     motherStatus,
-    occupation2,
+    motherOccupation,
     siblings,
     sisters,
     affluence,
@@ -32,11 +43,11 @@ export function Family({
     onSave,
 }: FamilyProps) {
     const [isEditing, setIsEditing] = useState(false);
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FamilyFormData>({
         fatherStatus,
-        occupation,
+        fatherOccupation,
         motherStatus,
-        occupation2,
+        motherOccupation,
         siblings,
         sisters,
         affluence,
@@ -49,9 +60,13 @@ export function Family({
         setIsEditing(false);
     };
 
+    const handleChange = (field: keyof FamilyFormData, value: string) => {
+        setFormData(prev => ({ ...prev, [field]: value }));
+    };
+
     return (
         <Card>
-            <CardHeader className="flex flex-row items-center justify-between">
+            <CardHeader className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                     <Users className="w-5 h-5 text-[#346FB7]" />
                     <CardTitle className="text-lg text-[#346FB7]">Family</CardTitle>
@@ -70,6 +85,7 @@ export function Family({
                     </div>
                 )}
             </CardHeader>
+
             <CardContent className="space-y-3">
                 {isEditing ? (
                     <>
@@ -77,15 +93,15 @@ export function Family({
                             <p className="text-sm text-gray-600 mb-1">Father's Status</p>
                             <Input
                                 value={formData.fatherStatus}
-                                onChange={(e) => setFormData({ ...formData, fatherStatus: e.target.value })}
+                                onChange={e => handleChange('fatherStatus', e.target.value)}
                                 className="h-8"
                             />
                         </div>
                         <div>
-                            <p className="text-sm text-gray-600 mb-1">Occupation</p>
+                            <p className="text-sm text-gray-600 mb-1">Father's Occupation</p>
                             <Input
-                                value={formData.occupation}
-                                onChange={(e) => setFormData({ ...formData, occupation: e.target.value })}
+                                value={formData.fatherOccupation}
+                                onChange={e => handleChange('fatherOccupation', e.target.value)}
                                 className="h-8"
                             />
                         </div>
@@ -93,15 +109,15 @@ export function Family({
                             <p className="text-sm text-gray-600 mb-1">Mother's Status</p>
                             <Input
                                 value={formData.motherStatus}
-                                onChange={(e) => setFormData({ ...formData, motherStatus: e.target.value })}
+                                onChange={e => handleChange('motherStatus', e.target.value)}
                                 className="h-8"
                             />
                         </div>
                         <div>
-                            <p className="text-sm text-gray-600 mb-1">Occupation</p>
+                            <p className="text-sm text-gray-600 mb-1">Mother's Occupation</p>
                             <Input
-                                value={formData.occupation2}
-                                onChange={(e) => setFormData({ ...formData, occupation2: e.target.value })}
+                                value={formData.motherOccupation}
+                                onChange={e => handleChange('motherOccupation', e.target.value)}
                                 className="h-8"
                             />
                         </div>
@@ -109,7 +125,7 @@ export function Family({
                             <span className="text-sm text-gray-600">Siblings</span>
                             <Input
                                 value={formData.siblings}
-                                onChange={(e) => setFormData({ ...formData, siblings: e.target.value })}
+                                onChange={e => handleChange('siblings', e.target.value)}
                                 className="w-32 h-8"
                             />
                         </div>
@@ -117,7 +133,7 @@ export function Family({
                             <span className="text-sm text-gray-600">Sisters</span>
                             <Input
                                 value={formData.sisters}
-                                onChange={(e) => setFormData({ ...formData, sisters: e.target.value })}
+                                onChange={e => handleChange('sisters', e.target.value)}
                                 className="w-32 h-8"
                             />
                         </div>
@@ -125,7 +141,7 @@ export function Family({
                             <p className="text-sm text-gray-600 mb-1">Affluence</p>
                             <Input
                                 value={formData.affluence}
-                                onChange={(e) => setFormData({ ...formData, affluence: e.target.value })}
+                                onChange={e => handleChange('affluence', e.target.value)}
                                 className="h-8"
                             />
                         </div>
@@ -133,7 +149,7 @@ export function Family({
                             <p className="text-sm text-gray-600 mb-1">Lives In</p>
                             <Input
                                 value={formData.livesIn}
-                                onChange={(e) => setFormData({ ...formData, livesIn: e.target.value })}
+                                onChange={e => handleChange('livesIn', e.target.value)}
                                 className="h-8"
                             />
                         </div>
@@ -145,16 +161,16 @@ export function Family({
                             <p className="text-sm font-medium text-gray-800">{formData.fatherStatus}</p>
                         </div>
                         <div>
-                            <p className="text-sm text-gray-600">Occupation</p>
-                            <p className="text-sm font-medium text-gray-800">{formData.occupation}</p>
+                            <p className="text-sm text-gray-600">Father's Occupation</p>
+                            <p className="text-sm font-medium text-gray-800">{formData.fatherOccupation}</p>
                         </div>
                         <div>
                             <p className="text-sm text-gray-600">Mother's Status</p>
                             <p className="text-sm font-medium text-gray-800">{formData.motherStatus}</p>
                         </div>
                         <div>
-                            <p className="text-sm text-gray-600">Occupation</p>
-                            <p className="text-sm font-medium text-gray-800">{formData.occupation2}</p>
+                            <p className="text-sm text-gray-600">Mother's Occupation</p>
+                            <p className="text-sm font-medium text-gray-800">{formData.motherOccupation}</p>
                         </div>
                         <div className="flex justify-between">
                             <span className="text-sm text-gray-600">Siblings</span>

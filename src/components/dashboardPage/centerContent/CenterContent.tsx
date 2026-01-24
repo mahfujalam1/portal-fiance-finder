@@ -6,8 +6,9 @@ import { HeroBanner } from "../heroBanner/HeroBanner"
 import { ProfessionalDetailsCard } from "../professionCard/ProfessionCard"
 import { ProfilePhotoCard } from "../profilePhoto/ProfilePhoto"
 import { VerifyIdCard } from "../verifyCard/VerifyCard"
-import Profile from "../profile/Profile"
 import { Suspense } from "react"
+import ProfileContent from "../profile/ProfileContent"
+import Profile from "@/app/[...search-result]/page"
 
 export const MainContent = () => {
     return (
@@ -25,9 +26,7 @@ export const MainContent = () => {
             </div>
 
             <SectionHeader title="Today's Match" />
-            <Suspense fallback={<div>Loading...</div>}>
-                <Profile />
-            </Suspense>
+            <Profile/>
         </div>
     )
 }

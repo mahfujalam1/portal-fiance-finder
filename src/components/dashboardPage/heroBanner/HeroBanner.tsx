@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,16 +11,11 @@ import { profiles } from "@/constant/profilesData"
 export function HeroBanner() {
     const [slidesToScroll, setSlidesToScroll] = useState(1)
 
-    // detect screen size
+    /* ---------- responsive slides ---------- */
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 768) {
-                setSlidesToScroll(2) // md+
-            } else {
-                setSlidesToScroll(1) // mobile
-            }
+            setSlidesToScroll(window.innerWidth >= 768 ? 2 : 1)
         }
-
         handleResize()
         window.addEventListener("resize", handleResize)
         return () => window.removeEventListener("resize", handleResize)
@@ -38,20 +33,31 @@ export function HeroBanner() {
     const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
     const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
 
-    const onSelect = useCallback(() => {
+    /* ---------- update scroll button states ---------- */
+    const updateScrollButtons = useCallback(() => {
         if (!emblaApi) return
-        setCanScrollPrev(emblaApi.canScrollPrev())
-        setCanScrollNext(emblaApi.canScrollNext())
+        // defer state update to avoid synchronous setState in effect
+        requestAnimationFrame(() => {
+            setCanScrollPrev(emblaApi.canScrollPrev())
+            setCanScrollNext(emblaApi.canScrollNext())
+        })
     }, [emblaApi])
 
+    /* ---------- subscribe to embla events ---------- */
     useEffect(() => {
         if (!emblaApi) return
-        onSelect()
-        emblaApi.on("select", onSelect)
+
+        // call once after mount
+        updateScrollButtons()
+
+        emblaApi.on("select", updateScrollButtons)
+        emblaApi.on("reInit", updateScrollButtons)
+
         return () => {
-            emblaApi.off("select", onSelect)
+            emblaApi.off("select", updateScrollButtons)
+            emblaApi.off("reInit", updateScrollButtons)
         }
-    }, [emblaApi, onSelect])
+    }, [emblaApi, updateScrollButtons])
 
     return (
         <Card className="mb-8">
@@ -64,8 +70,8 @@ export function HeroBanner() {
             <CardContent>
                 <div className="relative">
                     <div className="overflow-hidden" ref={emblaRef}>
-                        <div className="flex">
-                            {profiles.map((profile) => (
+                        <div className="flex gap-4">
+                            {profiles.map(profile => (
                                 <ProfileCard key={profile.id} profile={profile} />
                             ))}
                         </div>
