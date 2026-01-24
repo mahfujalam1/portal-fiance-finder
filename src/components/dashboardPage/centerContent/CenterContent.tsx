@@ -6,8 +6,6 @@ import { HeroBanner } from "../heroBanner/HeroBanner"
 import { ProfessionalDetailsCard } from "../professionCard/ProfessionCard"
 import { ProfilePhotoCard } from "../profilePhoto/ProfilePhoto"
 import { VerifyIdCard } from "../verifyCard/VerifyCard"
-import { Suspense } from "react"
-import ProfileContent from "../profile/ProfileContent"
 import Profile from "@/app/[...search-result]/page"
 
 export const MainContent = () => {

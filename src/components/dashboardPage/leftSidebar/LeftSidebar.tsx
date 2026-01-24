@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button"
 import { IMAGES } from "@/constant/image.index"
 import { Edit } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export function LeftSidebar() {
     return (
-        <div className="w-full scrollbar-hide">
+        <div className="w-full pt-20 scrollbar-hide">
             <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-[#346FB7] font-bold text-lg mb-6 pb-3 border-b-2 border-[#65CBE2]">Basic Information</h2>
 
@@ -40,7 +41,8 @@ export function LeftSidebar() {
                         <label className="font-bold text-[#346FB7] block mb-1">Account Type</label>
                         <div className="flex justify-between items-center">
                             <span className="text-sm text-gray-700">Free</span>
-                            <Badge variant="secondary">Upgrade</Badge>
+                            <Link href={'/upgrade-plan'}>
+                                <Badge variant="default">Upgrade</Badge></Link>
                         </div>
                     </div>
 

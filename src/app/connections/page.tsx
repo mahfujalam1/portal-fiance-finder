@@ -5,7 +5,7 @@ import { MobileChatBar } from '@/components/chat/MobileChatBar'
 
 function ConnectionPage() {
     return (
-        <div className="max-w-7xl mx-auto pt-20 min-h-screen px-4 md:px-6">
+        <div className="max-w-7xl mx-auto pt-20 min-h-screen">
 
             <div className="flex gap-6">
 
@@ -29,4 +29,4 @@ function ConnectionPage() {
     )
 }
 
-export default ConnectionPage
+export default ConnectionPage;

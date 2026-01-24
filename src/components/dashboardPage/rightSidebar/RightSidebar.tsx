@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, MessageCircleMore } from "lucide-react"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -94,11 +94,11 @@ export function RightSidebar({
     const [selectedChat, setSelectedChat] = useState<Chat | null>(null)
 
     return (
-        <div className="w-full flex flex-col h-[calc(100vh-70px)]">
+        <div className="flex flex-col h-[calc(100vh-70px)] fixed">
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b sticky top-0 z-10 bg-blue-200">
                 <div className="flex items-center gap-2">
-                    <span className="text-white font-bold">💬</span>
+                    <span className="text-primary font-bold"><MessageCircleMore /></span>
                     <span className="bg-linear-to-r text-xl to-[#49cce9] from-[#346FB7]
     bg-clip-text text-transparent font-semibold">LIVE CHAT</span>
                 </div>

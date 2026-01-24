@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <div className="lg:px-10">
 
-            <div className="mt-20 flex h-[calc(100vh-80px)]">
+            <div className="flex h-screen">
 
                 {/* Left Sidebar - Desktop only */}
                 <aside className="hidden lg:block w-[20%]">
@@ -14,7 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </aside>
 
                 {/* Main Content */}
-                <main className="flex-1 overflow-y-auto no-scrollbar px-2 lg:px-6">
+                <main className="flex-1 pt-20 overflow-y-auto no-scrollbar px-2 lg:px-6">
                     {children}
                 </main>
 

@@ -20,13 +20,14 @@ export function Navbar() {
     const pathname = usePathname()
 
     const isHome = pathname === "/"
+    const searchPage = pathname.startsWith("/search-result")
 
     return (
         <nav className="fixed top-0 left-0 w-full h-16 z-50 bg-gradient px-6">
             <div
                 className={clsx(
                     "h-full flex items-center justify-between",
-                    isHome ? "w-full" : "max-w-7xl mx-auto"
+                    isHome || searchPage ? "w-full px-4" : "max-w-7xl mx-auto"
                 )}
             >
                 {/* Logo */}
@@ -61,9 +62,9 @@ export function Navbar() {
                     {/* Profile Dropdown - Desktop */}
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="icon" className="rounded-full">
-                                <User className="w-5 h-5" />
-                            </Button>
+                            <div className="cursor-pointer">
+                                <User />
+                            </div>
                         </DropdownMenuTrigger>
 
                         <DropdownMenuContent className="w-full p-0 mt-5" align="end">

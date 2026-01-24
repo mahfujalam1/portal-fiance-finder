@@ -2,7 +2,7 @@ import { MainContent } from '@/components/dashboardPage/centerContent/CenterCont
 
 function HomePage() {
     return (
-        <div className='pb-20'><MainContent /></div>
+        <div className=''><MainContent /></div>
     )
 }
 

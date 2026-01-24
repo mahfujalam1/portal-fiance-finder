@@ -3,7 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/shared/navbar/Navbar";
 import { Toaster } from "sonner";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

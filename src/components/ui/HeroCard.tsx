@@ -1,6 +1,6 @@
 
 import { Button } from './button'
-import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar'
+import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
 import { IMAGES } from '@/constant/image.index'
 import { ProfileData } from '@/types/profile'
 

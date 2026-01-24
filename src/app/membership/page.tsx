@@ -5,7 +5,7 @@ import { MyAccount } from '@/page/myAccount/MyAccountPage'
 
 function Membership() {
     return (
-        <div className="max-w-7xl mx-auto pt-20 min-h-screen px-4 md:px-6">
+        <div className="max-w-7xl mx-auto pt-20 min-h-screen">
 
             <div className="flex gap-6">
 

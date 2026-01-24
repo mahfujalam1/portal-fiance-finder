@@ -1,16 +1,8 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  // On-demand revalidation
-  onDemandEntries: {
-    maxInactiveAge: 25 * 1000,
-    pagesBufferLength: 5,
-  },
-  
-  // Image optimization
-  images: {
-    remotePatterns: [],
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "standalone", // এটি add করুন
+  reactStrictMode: true,
+  staticPageGenerationTimeout: 120,
 };
 
 export default nextConfig;

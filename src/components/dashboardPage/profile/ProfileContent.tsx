@@ -5,6 +5,8 @@ import { profiles } from "@/constant/profilesData";
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
+export const dynamic = 'force-dynamic';
+
 export default function ProfileContent() {
     const searchParams = useSearchParams();
 

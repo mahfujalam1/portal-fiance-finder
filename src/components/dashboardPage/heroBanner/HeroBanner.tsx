@@ -36,7 +36,6 @@ export function HeroBanner() {
     /* ---------- update scroll button states ---------- */
     const updateScrollButtons = useCallback(() => {
         if (!emblaApi) return
-        // defer state update to avoid synchronous setState in effect
         requestAnimationFrame(() => {
             setCanScrollPrev(emblaApi.canScrollPrev())
             setCanScrollNext(emblaApi.canScrollNext())
@@ -62,7 +61,7 @@ export function HeroBanner() {
     return (
         <Card className="mb-8">
             <CardHeader>
-                <CardTitle className="text-[#346FB7] text-center text-2xl border-b-2 border-[#65CBE2] pb-6">
+                <CardTitle className="text-[#346FB7] text-center text-2xl border-b-2 border-[#65CBE2] py-3">
                     Awaiting Response
                 </CardTitle>
             </CardHeader>
@@ -81,7 +80,7 @@ export function HeroBanner() {
                     <button
                         onClick={scrollPrev}
                         disabled={!canScrollPrev}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg flex items-center justify-center"
+                        className="absolute left-0 top-1/2 cursor-pointer -translate-y-1/2 w-8 h-8 rounded-lg flex items-center justify-center"
                         style={{
                             background: "linear-gradient(to right, #346fb7, #65cbe2)",
                             color: "white",
@@ -95,7 +94,7 @@ export function HeroBanner() {
                     <button
                         onClick={scrollNext}
                         disabled={!canScrollNext}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg flex items-center justify-center"
+                        className="absolute right-0 top-1/2 cursor-pointer -translate-y-1/2 w-8 h-8 rounded-lg flex items-center justify-center"
                         style={{
                             background: "linear-gradient(to right, #65cbe2, #346fb7)",
                             color: "white",
@@ -106,7 +105,7 @@ export function HeroBanner() {
                     </button>
                 </div>
 
-                <div className="text-center mt-6">
+                <div className="text-center py-2">
                     <Button variant="link" className="text-[#346FB7]">
                         view all
                     </Button>
