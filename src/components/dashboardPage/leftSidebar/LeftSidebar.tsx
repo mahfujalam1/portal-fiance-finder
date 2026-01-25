@@ -9,7 +9,7 @@ import Link from "next/link"
 
 export function LeftSidebar() {
     return (
-        <div className="w-full pt-20 scrollbar-hide">
+        <div className="w-full scrollbar-hide">
             <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-[#346FB7] font-bold text-lg mb-6 pb-3 border-b-2 border-[#65CBE2]">Basic Information</h2>
 

@@ -176,7 +176,7 @@ export const ProfilePage = () => {
 
     return (
         <div className="min-h-screen">
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
                 <div className="w-full">
                     <div className="bg-blue-50 p-4 rounded-lg mb-4">
                         <p className=" text-gray-600 text-xl font-bold bg-linear-to-r text-xl to-[#49cce9] from-[#346FB7]

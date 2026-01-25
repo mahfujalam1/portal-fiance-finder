@@ -2,7 +2,7 @@ import { MainContent } from '@/components/dashboardPage/centerContent/CenterCont
 
 function HomePage() {
     return (
-        <div className=''><MainContent /></div>
+        <div className='pt-20 h-screen'><MainContent /></div>
     )
 }
 

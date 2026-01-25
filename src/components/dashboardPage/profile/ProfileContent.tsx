@@ -61,7 +61,7 @@ export default function ProfileContent() {
     }, [filters]);
 
     return (
-        <div className="space-y-4">
+        <div className="space-y-4 pt-20">
             {/* Filter info দেখান */}
             <div className="bg-blue-50 p-4 rounded-lg">
                 <p className="text-gray-600 text-xl font-bold bg-gradient-to-r from-[#346FB7] to-[#49cce9] bg-clip-text text-transparent text-center">

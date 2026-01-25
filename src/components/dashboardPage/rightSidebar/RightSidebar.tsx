@@ -94,7 +94,7 @@ export function RightSidebar({
     const [selectedChat, setSelectedChat] = useState<Chat | null>(null)
 
     return (
-        <div className="flex flex-col h-[calc(100vh-70px)] fixed">
+        <div className="flex flex-col top-20 sticky">
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b sticky top-0 z-10 bg-blue-200">
                 <div className="flex items-center gap-2">

@@ -19,7 +19,7 @@ const RefineSearchSidebar = () => {
     };
 
     return (
-        <div className="w-full max-w-sm bg-gray-100 rounded-t-md shadow-lg">
+        <div className="w-full fixed max-w-sm pe-8 rounded-t-md">
             {/* Custom styles for radio button selection */}
             <style>{`
         [data-state="checked"] {
