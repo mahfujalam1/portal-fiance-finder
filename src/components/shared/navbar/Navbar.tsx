@@ -40,7 +40,7 @@ export function Navbar() {
                 </div>
 
                 {/* Center: Menu Items */}
-                <div className="flex-1 flex justify-center gap-10 items-center text-lg">
+                <div className="flex-1 flex justify-center gap-10 items-center text-lg hidden md:block">
                     <span
                         onClick={() => router.push("/")}
                         className=" font-medium cursor-pointer text-primary transition-colors"
